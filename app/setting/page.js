@@ -1,5 +1,5 @@
-import Sidebar from "@/components/Sidebar";
-import Wrapper from "@/components/Wrapper";
+import Sidebar from "../../components/Sidebar"
+import Wrapper from "../../components/Wrapper"
 
 export default function Setting() {
   return (

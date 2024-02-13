@@ -1,7 +1,7 @@
 "use client";
 
-import Sidebar from "@/components/Sidebar";
-import Wrapper from "@/components/Wrapper";
+import Sidebar from "../../components/Sidebar";
+import Wrapper from "../../components/Wrapper";
 import { Button, Modal, Form } from "react-bootstrap";
 import { useState } from "react";
 
@@ -30,7 +30,7 @@ export default function Products() {
               </Button>
             </div>
 
-            <Modal show={tampilkan}>
+            <Modal show={tampilkan} onHide={handleTutupModalBox}>
               <Modal.Header closeButton>
                 <Modal.Title>Tambah Product</Modal.Title>
               </Modal.Header>
