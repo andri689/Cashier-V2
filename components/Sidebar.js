@@ -16,12 +16,10 @@ export default function Sidebar() {
           <div className="list-group list-group-flush mx-3 mt-4">
             <Link
               href="/products"
-              className={`list-group-item list-group-item-action py-2 ripple me-3 
-                          ${router === "/products" ? "active" : ""}
-                          `}
+              className={`list-group-item list-group-item-action py-2 ripple me-3 ${router === "/products" ? "active" : ""}`}
               aria-current="true"
             >
-              <i className="fas fa-chart-pie fa-fw me-3 "></i>
+              <i className="fas fa-chart-pie fa-fw me-3"></i>
               <span>Products</span>
             </Link>
             <Link
@@ -29,13 +27,11 @@ export default function Sidebar() {
               className={`list-group-item list-group-item-action py-2 ripple ${router === "/user-management" ? "active" : ""}`}
             >
               <i className="fas fa-chart-area fa-fw me-3"></i>
-              <span>User Management</span>
+              <span>UserManagement</span>
             </Link>
             <Link
               href="/setting"
-              className={`list-group-item list-group-item-action py-2 ripple 
-                        ${router === "/setting" ? "active" : ""}
-                          `}
+              className={`list-group-item list-group-item-action py-2 ripple ${router === "/setting" ? "active" : ""}`}
             >
               <i className="fas fa-chart-line fa-fw me-3"></i>
               <span>Setting</span>

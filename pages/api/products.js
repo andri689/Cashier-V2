@@ -1,17 +1,13 @@
-// import ProductService from "@/service/ProductService";
-// import sequelize from "@/config/database";
-// import Product from "@/model/product";
-import ProductService from "../../service/ProductService";
-import sequelize from "../../config/database";
-import Product from "../../model/product";
-
 // HTTP method
 // - GET -> Mengambil data
 // - POST -> Menambah Data
 // - DELETE -> Menghapus Data
 // -> PUT -> Mengedit / Mengubah Data
-
 // /api/products -> POST, GET, DELETE, PUT
+
+import ProductService from "../../service/ProductService";
+import sequelize from "../../config/database";
+import Product from "../../model/product";
 
 export default async function handler(req, res) {
   try {
@@ -30,11 +26,26 @@ export default async function handler(req, res) {
         data: addProduct,
       });
     } else if (req.method === "GET") {
+      const products = await productService.getAll(); // Mengambil semua produk dari database
+      console.log(products);
+      return res.status(200).json(products); // Mengirimkan data produk sebagai respons
+    } else if (req.method === "DELETE") {
+      const productId = req.query.productId;
+
+      const deletedProduct = await productService.delete(productId);
+
+      if (!deletedProduct) {
+        return res.status(404).json({ message: "Product not found" });
+      }
+
       return res.status(200).json({
-        message: "This is method GET",
+        message: "Successfully deleted product",
+        data: deletedProduct,
       });
+    } else {
+      return res.status(405).json({ message: "Method not allowed" });
     }
-  } catch (err) {
-    return res.json({ message: "Internal error in create product"})
+  } catch (error) {
+    return res.status(500).json({ message: "Internal error" });
   }
 }

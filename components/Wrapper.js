@@ -6,8 +6,8 @@ export default function Wrapper(props) {
   return(
     <main style={{ marginTop: "58px"}}>
       <Container className="pt-4">
-        { childrenEl }
-    </Container>
+            { childrenEl }
+        </Container>
     </main>
   )
 }

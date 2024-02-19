@@ -27,10 +27,13 @@ export default function Login() {
 
     const result = await loginAPI.json();
 
+
     //cek status
     console.log(loginAPI.json);
     if (result.status == 'success') {
       setWarna('success');
+      // Jika login berhasil, arahkan pengguna ke halaman home
+      window.location.href = result.dashboardURL;
     } else if (result.status == 'fail') {
       setWarna('danger');
     }

@@ -1,7 +1,8 @@
-import sequelize from "@/config/database";
-import User from "@/model/user";
+// import sequelize from "@/config/database";
+import sequelize from "../../config/database";
+import User from "../../model/user";
 import bcrypt from "bcrypt";
-import UserService from "@/service/UserService";
+import UserService from "../../service/UserService";
 
 export default async function POST(req, res) {
   try {
@@ -34,6 +35,7 @@ export default async function POST(req, res) {
     return res.status(200).json({
       message: "Berhasil Login",
       status: "success",
+      dashboardURL: '/products'
     });
   } catch (error) {
     console.log(error);

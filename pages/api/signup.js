@@ -1,7 +1,7 @@
-import sequelize from "@/config/database";
-import User from "@/model/user";
+import sequelize from "../../config/database";
+import User from "../../model/user";
 import bcrypt from "bcrypt";
-import UserService from "@/service/UserService";
+import UserService from "../../service/UserService";
 
 export default async function POST(req, res) {
   try {

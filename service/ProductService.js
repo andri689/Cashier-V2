@@ -27,6 +27,29 @@ class ProductService {
         return error;
       }
     }
+    async getAll(){
+      try{
+        await this.sequelize.authenticate();
+        // await this.sequelize.sync();
+        const result = await this.product_model.findAll()
+        return result        
+      }catch(error){
+        return error;
+      }
+    }
+    async delete(productId) {
+      try {
+        // Anda tidak perlu memanggil authenticate() di sini, karena koneksi ke database sudah diverifikasi saat objek ProductService dibuat.
+        const productToDelete = await this.product_model.findByPk(productId);
+        if (!productToDelete) {
+          throw new Error('Product not found');
+        }
+        await productToDelete.destroy();
+        return productToDelete;
+      } catch (error) {
+        return error;
+      }
+    }
   }
   
   export default ProductService;
